@@ -2,6 +2,6 @@
 
 [cli](cli/) - A collection of scripts to run InTime from the command line interface. Supports both Linux and Windows.
 
-[intime](intime/) - A collection of sample InTime Tcl scripts to optimize design or configure the environment.
+[intime](intime/) - A collection of InTime Tcl scripts to optimize design or configure the environment.
 
 [tcl_console](tcl_console/) - Collection of scripts to InTime from the Vivado Tcl Console interface. Supports both Linux and Windows.
