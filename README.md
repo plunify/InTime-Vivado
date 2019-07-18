@@ -3,7 +3,7 @@
 # Run InTime in Tcl Mode (Vivado)
 This repository contains scripts to run InTime in the Tcl Console or on the command-line. There are 3 ways to run InTime from a Tcl script.
 1. From a command line shell
-2. Within InTime GUI Tcl Console
+2. From the Tcl Console in InTime GUI 
 3. From the Vivado Tcl Console
 
 ## Main Contents
