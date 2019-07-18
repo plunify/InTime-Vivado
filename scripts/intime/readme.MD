@@ -2,7 +2,7 @@
 
 ## Contents
 
-1. [intimeflow.tcl](intimeflow.tcl) is a quick start script showing how to run InTime using Tcl instead of the GUI.
+1. [simple/intimeflow.tcl](simple/intimeflow.tcl) is a quick start script showing how to run InTime using Tcl instead of the GUI.
 
 2. [autorun_multi_recipes](autorun_multi_recipes) is an advanced InTime script that runs multiple recipes with different stop conditions. 
 
