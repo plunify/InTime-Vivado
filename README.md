@@ -12,12 +12,12 @@ This repository contains scripts to run InTime in the Tcl Console or on the comm
 3. [scripts/intime/configuration](scripts/intime/configuration/) : Ways to set up InTime for your FPGA toolchains.
 
 Currently, both project and non-project modes are supported. 
-For non-project mode, only a post-synthesis **DCP** file is supported for InTime version 2.6.10 and older. 
+For InTime version 2.6.10 and older, a post-synthesis **DCP** file is required for non-project mode. 
 
-To use the InTime GUI, refer to this [video](https://www.youtube.com/watch?v=lQvY_XZ3R7w).
-For more information about InTime, go to [here](https://www.plunify.com/en/intime/)
+To learn more of the InTime GUI, refer to this [video](https://www.youtube.com/watch?v=lQvY_XZ3R7w).
 
 ## Requirements
 1. Latest version of InTime.
 2. Vivado with an appropriate license properly registered in InTime. If you have not done so, please refer to this [page](scripts/intime/configuration)
 
+For more information about InTime, go to [here](https://www.plunify.com/en/intime/)
