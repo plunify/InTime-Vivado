@@ -8,5 +8,6 @@
 
 3. [Configuration](configuration/) folder contains sample scripts to setup and configure your InTime environment. Be sure to run them to setup the Vivado tools before using InTime. 
 
-A detailed version of the Tcl reference for InTime can be found at this [link](https://support.plunify.com/en/doc/intime-doc/tcl-command-reference/) 
+A detailed version of the Tcl reference for InTime can be found at this [link](https://support.plunify.com/en/doc/intime-doc/tcl-command-reference/).
+
 Additional description of the flow properties can be found here [link](https://docs.plunify.com/intime/flow_properties.html)
