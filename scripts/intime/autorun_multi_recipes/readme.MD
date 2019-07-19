@@ -6,7 +6,7 @@ This custom Tcl script automatically executes multiple InTime recipes in the ord
 A XPR project is required before running autorun_multi_recipes.tcl.
 To get a sample of XPR project, please see [here](../../../examples/project_mode)
 
-## How to run
+## How to run:
 ### Run autorun_multi_recipes.tcl in InTime Tcl Console:
 1. Launch InTime and open a Vivado XPR project. 
 2. Run the autorun_multi_recipes.tcl script at the Tcl Console by using following command:
@@ -24,7 +24,7 @@ source autorun_multi_recipes.tcl
 <intime_installed_dir>\bin\intime.exe -project <prog> -mode batch -s autorun_multi_recipes.tcl -toolchain vivado 
 -toolchain_version 2018.3.0 -tclargs "-output_dir <output_directory>"
 
-## Explanation
+## Explanation:
 The autorun_multi_recipes.tcl example script is divided into five different parts:
 
 * A. Variable declaration for important information like the recipes to use, TNS goal, number of runs per rounds, etc.
