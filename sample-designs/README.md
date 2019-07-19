@@ -1,6 +1,4 @@
-# Examples 
-
-## List of examples
+# Sample Designs
 
 ### [Non-project mode](nonproject_mode/)
 
