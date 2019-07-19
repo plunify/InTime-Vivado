@@ -5,7 +5,7 @@ revision for the next recipe.
 
 ### Requirement:
 A XPR project is required before running autorun_multi_recipes.tcl.
-To get a sample of XPR project, please see [here](../../examples/project_mode)
+To get a sample of XPR project, please see [here](../../../examples/project_mode)
 
 ### Steps to run autorun_multi_recipes.tcl in InTime Tcl Console:
 1. Launch InTime and open a Vivado XPR project. 
@@ -24,6 +24,7 @@ source autorun_multi_recipes.tcl
 <intime_installed_dir>\bin\intime.exe -project <XPR_file> -mode batch -s autorun_multi_recipes.tcl -toolchain vivado 
 -toolchain_version 2018.3.0 -tclargs "-output_dir <output_directory>"
 
+### Results:
 After the script run is completed, user can find the results inside the output directory.
 Under the output directory, you should see pass or fail file. If the end goal is met, you should able to see pass file in the output directory. Otherwise, you should see a fail file instead. 
 
