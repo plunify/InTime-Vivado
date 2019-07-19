@@ -4,7 +4,9 @@
 
 **Available in InTime 2.6.11 onwards** - Older versions of InTime only supports Tcl based flow either in project mode or via a dcp.
 
-This is a sample project to demonstrate how to use InTime in non-project mode. The tcl file is a typical build script. It reads in a list of files. 
+This is a sample project to demonstrate how to use InTime in non-project mode. To use this build script, treat it like a project file, e.g. XPR, and open it directly with InTime.
+
+The tcl file is a typical build script. It reads in a list of files. 
 
 ```Tcl
 # 
