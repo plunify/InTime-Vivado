@@ -27,15 +27,15 @@ source autorun_multi_recipes.tcl
 ## Explanation:
 The autorun_multi_recipes.tcl example script is divided into five different parts:
 
-* A. Variable declaration for important information like the recipes to use, TNS goal, number of runs per rounds, etc.
-* B. InTime flow configuration and recipe execution.
-* C. Results verification to either stop or execute subsequent recipes.
-* D. Export strategies to Tcl scripts.
-* E. Summarize and print results.
+A. Variable declaration for important information like the recipes to use, TNS goal, number of runs per rounds, etc.
+B. InTime flow configuration and recipe execution.
+C. Results verification to either stop or execute subsequent recipes.
+D. Export strategies to Tcl scripts.
+E. Summarize and print results.
 
 ### A. Variable Declaration
 
-The code below describes what recipes to use and in what order of execution. In this example, for Vivado the order of execution is:
+First it describes what recipes to use and in what order of execution. In this example, for Vivado the order of execution is:
 #### Hot Start -> InTime Default -> extra_opt_exploration
 
 You can modify this sequence to use different recipes or to change the order of execution.
@@ -57,9 +57,7 @@ if { [string equal "$current_toolchain" "quartusii"] } {
 }
 ```
 
-### B. InTime flow configuration and recipe execution.
-
-This part shows how to define the goals for Total Negative Slack(TNS), Worst Negative Slack (WNS) for each recipe, number of runs per round, number of rounds. ```end_tns_goal``` contains the final TNS goal. Upon reaching the final TNS goal, there can be various follow-on actions, for example generate bitstream, copy files, and so on.
+The below part shows how to define the goals for Total Negative Slack(TNS), Worst Negative Slack (WNS) for each recipe, number of runs per round, number of rounds. ```end_tns_goal``` contains the final TNS goal. Upon reaching the final TNS goal, there can be various follow-on actions, for example generate bitstream, copy files, and so on.
 ```tcl
 # Define end goal
 set end_tns_goal 0
@@ -87,6 +85,30 @@ set recipe_target_runs_p_round(auto_placement) 10
 set recipe_target_runs_p_round(vivado_explorer) 10
 set recipe_target_runs_p_round(extra_opt_exploration) 10
 ```
+### B. InTime flow configuration and recipe execution.
+
+The InTime flow configuration and recipe execution are outlined below. 
+
+```tcl
+# Configure InTime Flow settings 
+# -> Type 'flow properties' in Tcl console to shows all the available flow property to configure
+flow reset                 ; # Reset Intime internal flow 
+flow restore_defaults      ; # Restore all flow property to default value
+flow set run_target local  ; # Set to run strategies on local machine
+flow set goal speed_tns    ; # Set goal type as speed_tns for timing optimization
+flow set concurrent_runs 3 ; # Number of builds to run in parallel
+flow set control_stop_when_goal_met true ; # Stop current recipe run when goal is met
+flow set control_create_bitstreams false ; # Set to false to save compute time
+```
+
+```flow reset``` is used to reset the internal flow history. It is a recommended practice to always reset the internal flow history before running any recipe.
+```flow set <property> <value>``` is the command to configure InTime flow settings. For example, ```setting flow set control_stop_when_goal```_met to true enables InTime to stop the current recipe when the goal is met. 
+Otherwise, InTime allows the recipe to continue running even after the goal is met.
+Setting flow set control_create_bitstreams to true enables bitstream files to be created for every revision. Note: This takes up more time to complete each strategy.
+
+### Results verification
+
+
 
 ### Results:
 After the script run is completed, user can find the results inside the output directory.
