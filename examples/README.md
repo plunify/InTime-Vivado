@@ -2,7 +2,7 @@
 
 ## List of examples
 
-### 1. [Non-project mode](nonproject_mode/)
+### [Non-project mode](nonproject_mode/)
 
 **Coming soon to InTime 2.6.11 onwards**
 
@@ -44,7 +44,7 @@ if {$rc} {
 ...
 ...
 ```
-### 2. [Project mode](project_mode/)
+### [Project mode](project_mode/)
 
 This example creates an XPR project.
 
