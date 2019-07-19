@@ -4,9 +4,7 @@
 
 ### [Non-project mode](nonproject_mode/)
 
-**Coming soon to InTime 2.6.11 onwards**
-
-Currently InTime only supports Tcl based flow either in project mode or via a dcp. *New non-project mode capabilities will be released for the next version.* 
+**Available in InTime 2.6.11 onwards** - Currently InTime only supports Tcl based flow either in project mode or via a dcp.
 
 This is a sample project to demonstrate how to use InTime in non-project mode. The tcl file is a typical build script. It reads in a list of files. 
 
