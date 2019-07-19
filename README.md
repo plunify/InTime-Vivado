@@ -22,11 +22,8 @@ Using a command line shell, a typical way to start InTime is as such below
 
 For InTime version 2.6.10 and older, a post-synthesis **DCP** file is required for non-project mode. 
 
-## GUI
-To learn more of the InTime GUI, refer to this [video](https://www.youtube.com/watch?v=lQvY_XZ3R7w).
-
 ## Requirements
 1. Latest version of InTime.
 2. Vivado with an appropriate license properly registered in InTime. If you have not done so, please refer to this [page](scripts/intime/configuration)
 
-For more information about InTime, go to [here](https://www.plunify.com/en/intime/)
+For more information about InTime, go to [here](https://www.plunify.com/en/intime/). To learn more of the InTime GUI, refer to this [video](https://www.youtube.com/watch?v=lQvY_XZ3R7w).
