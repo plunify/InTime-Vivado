@@ -107,7 +107,62 @@ flow set control_create_bitstreams false ; # Set to false to save compute time
 - ```flow set <property> <value>``` is the command to configure InTime flow settings. For example, ```setting flow set control_stop_when_goal```_met to true enables InTime to stop the current recipe when the goal is met. Otherwise, InTime allows the recipe to continue running even after the goal is met.
 - Setting ```flow set control_create_bitstreams``` to true enables bitstream files to be created for every revision. Note: This takes up more time to complete each strategy.
 
-### Results verification
+To start a recipe, use the command ```flow run_recipe <recipe_name>``` as shown below. If the recipe run completes, the ```flow run_recipe``` command returns 0, otherwise it returns 1.
+
+```tcl
+# Run the current recipe
+if { [catch { flow run_recipe $current_recipe }] } {
+    puts "ERROR: Recipe $current_recipe failed, continuing with the rest of the flow... ${::errorInfo}"
+    set recipe_run_fail 1
+    set return_code 1
+}        
+```
+
+### C. Results verification
+
+In this section, the script checks if any revision in this round meets the target goal. If yes, it stops, otherwise it continues to execute the subsequent recipes until all user-defined recipes are executed.
+
+```tcl
+ # Check if the end goal was met. Stop this script run if goal met
+set job_id [flow get local_job_id]
+if { $flow_continue && !$recipe_run_fail } {
+    puts "INFO: Checking results in $current_recipe recipe run \(job $job_id \) "
+    results clear
+    results add job $job_id
+    set best_revision_name [lindex [results summary best -list] 0]
+    catch { strategy unset_active }
+    catch { strategy set_active $best_revision_name $job_id }
+    set best_revision_tns    [ strategy results -field "TNS" ]
+    set best_revision_wslack [ strategy results -field "Worst Slack" ]
+    puts "INFO: -> Best result in job \($job_id\) is $best_revision_name revision with TNS = $best_revision_tns and Worst Slack = $best_revision_wslack "
+    if { [is_job_met_criteria $job_id "" 0 "speed_tns" $end_tns_goal] } {
+        puts "INFO: -> Goal met! .. exiting optimization"
+        set flow_continue 0
+        set goal_met 1
+    }
+}
+```
+
+### D. Export Strategies into Tcl Scripts
+This section shows how to export strategy settings for each strategy into a Tcl script. 
+
+```tcl
+# Export strategies settings in tcl for success revisions
+results clear 
+catch { strategy unset_active }
+set count 0
+foreach id $jobs_ran {
+    results add job $id
+    set stratname_list_success [results summary success -list]
+    set best_revname_per_job [lindex [results summary best -list] 0]
+    foreach stratname $stratname_list_success {
+        strategy set_active $stratname $id
+        strategy export "$export_settings_tcl_dir/job${id}_${stratname}.tcl" -script_tcl
+        catch { strategy unset_active }
+    }
+```
+
+The command ```strategy export <export_tcl_name> -script_tcl``` is used to export settings for the current strategy into a Tcl script file. In this example, the script only exports strategies that compiled successfully. It uses the command ```results summary success -list``` to obtain a list of such strategies. You must always set the “active strategy” using the command ```strategy set_active <strategy_name> <job_id>``` before running the ```strategy export <export_tcl_name> -script_tcl``` command.
 
 
 
