@@ -34,7 +34,6 @@ The autorun_multi_recipes.tcl example script is divided into five different part
 - Summarize and print results.
 
 
-
 ### A. Variable Declaration
 
 First it describes what recipes to use and in what order of execution. In this example, for Vivado the order of execution is:
@@ -164,10 +163,37 @@ foreach id $jobs_ran {
 
 The command ```strategy export <export_tcl_name> -script_tcl``` is used to export settings for the current strategy into a Tcl script file. In this example, the script only exports strategies that compiled successfully. It uses the command ```results summary success -list``` to obtain a list of such strategies. You must always set the “active strategy” using the command ```strategy set_active <strategy_name> <job_id>``` before running the ```strategy export <export_tcl_name> -script_tcl``` command.
 
+### E. Results Summary
+When the recipe runs are done, the results will be inside the output directory. 
 
-
-### Results:
-After the script run is completed, user can find the results inside the output directory.
 Under the output directory, you should see pass or fail file. If the end goal is met, you should able to see pass file in the output directory. Otherwise, you should see a fail file instead. 
 
-The best_<job_id>_<strategy_name>.tcl script is an exported strategy Tcl script which reproduces the best timing result among the generated strategies. Meanwhile, the folder export_strategies_tcl contains the exported strategy Tcl scripts of all the other strategies that are compiled successfully. Note that the output directory is cleaned up whenever this example script is executed. Please back up this folder if necessary.
+The best_<job_id>_<strategy_name>.tcl script is an  Tcl script which reproduces the best timing result among the generated strategies. Meanwhile, the folder export_strategies_tcl contains the exported strategy Tcl scripts of all the other strategies that are compiled successfully. (Note that the output directory is cleaned up whenever this example script is executed. Please back up this folder if necessary.)
+
+```tcl
+# Export best strategy in tcl 
+catch { strategy unset_active }
+set best_job [ lindex $best_revname_n_job 0]
+set best_revname [ lindex $best_revname_n_job 1]
+strategy set_active $best_revname $best_job
+strategy export "$result_dir/best_job${best_job}_${best_revname}.tcl" -script_tcl
+catch { strategy unset_active }
+```
+This section will print a summary of the results you selected. To select all the relevant results using their job IDs: ```results add job <job_id>``` , then return  revisions that compiled successfully via ```results summary success``` command.
+
+```tcl
+# Export summary of results in summary_result.rpt
+foreach id $jobs_ran {
+    results add job $id
+}
+
+set summary_result [results summary success]
+if { [catch { open $summary_result_rpt w } fh] } {
+    puts "ERROR: Couldn't open file: $fh"
+    set return_code 1
+} else {
+    puts $fh "$summary_result"
+    catch { close $fh }
+}
+results clear
+```
