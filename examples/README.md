@@ -4,7 +4,7 @@
 
 ### 1. [Non-project mode](nonproject_mode/)
 
-**Coming soon to InTime 2.7 onwards**
+**Coming soon to InTime 2.6.11 onwards**
 
 Currently InTime only supports Tcl based flow either in project mode or via a dcp. *New non-project mode capabilities will be released for the next version.* 
 
@@ -44,4 +44,5 @@ if {$rc} {
 ...
 ...
 ```
+### 1. [Project mode](project_mode/)
  
