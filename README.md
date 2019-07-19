@@ -13,7 +13,7 @@ This repository contains scripts to run InTime in the Tcl Console or on the comm
 ## Run InTime in Project versus Non-project Mode
 Using a command line shell, a typical way to start InTime is as such below
 
-```intime.sh -mode batch -project <proj> -s autorun_multi_recipes.tcl```
+```intime.sh -mode batch -project <proj> -s intimeflow.tcl```
 
 * For project-mode, use a XPR file for the ```<proj>``` option.
 * For non-project mode-, use the a tcl build script for the ```<proj>``` option.
