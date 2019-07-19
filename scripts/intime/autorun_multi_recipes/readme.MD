@@ -27,15 +27,11 @@ source autorun_multi_recipes.tcl
 ## Explanation
 The autorun_multi_recipes.tcl example script is divided into five different parts:
 
-A. Variable declaration for important information like the recipes to use, TNS goal, number of runs per rounds, etc.
-
-B. InTime flow configuration and recipe execution.
-
-C. Results verification to either stop or execute subsequent recipes.
-
-D. Export strategies to Tcl scripts.
-
-E. Summarize and print results.
+* A. Variable declaration for important information like the recipes to use, TNS goal, number of runs per rounds, etc.
+* B. InTime flow configuration and recipe execution.
+* C. Results verification to either stop or execute subsequent recipes.
+* D. Export strategies to Tcl scripts.
+* E. Summarize and print results.
 
 ### A. Variable Declaration
 
@@ -63,6 +59,34 @@ if { [string equal "$current_toolchain" "quartusii"] } {
 
 ### B. InTime flow configuration and recipe execution.
 
+This part shows how to define the goals for Total Negative Slack(TNS), Worst Negative Slack (WNS) for each recipe, number of runs per round, number of rounds. ```end_tns_goal``` contains the final TNS goal. Upon reaching the final TNS goal, there can be various follow-on actions, for example generate bitstream, copy files, and so on.
+```tcl
+# Define end goal
+set end_tns_goal 0
+set end_wns_goal "*" ; #Don't Care
+```
+
+The ```recipe_target_result_tns``` defines a recipe goal that tells InTime to switch to a subsequent recipe if it meets this TNS target. Typically, the earlier goals are set at a worse level compared to the later goals.
+```tcl
+# Define tns goal for each recipe run
+set recipe_target_result_tns(hot_start) "-2500"
+set recipe_target_result_tns(intime_default) "-1000"
+set recipe_target_result_tns(deep_dive) "-500"
+set recipe_target_result_tns(auto_placement) "0"
+set recipe_target_result_tns(seeded_effort_level_exploration) "0"
+set recipe_target_result_tns(vivado_explorer) "0"
+set recipe_target_result_tns(extra_opt_exploration) "0"
+
+
+# Define runs_per_round for each recipe run
+set recipe_target_runs_p_round(hot_start) 50
+set recipe_target_runs_p_round(intime_default) 10
+set recipe_target_runs_p_round(deep_dive) 10
+set recipe_target_runs_p_round(seeded_effort_level_exploration) 10
+set recipe_target_runs_p_round(auto_placement) 10
+set recipe_target_runs_p_round(vivado_explorer) 10
+set recipe_target_runs_p_round(extra_opt_exploration) 10
+```
 
 ### Results:
 After the script run is completed, user can find the results inside the output directory.
