@@ -27,11 +27,13 @@ source autorun_multi_recipes.tcl
 ## Explanation:
 The autorun_multi_recipes.tcl example script is divided into five different parts:
 
-A. Variable declaration for important information like the recipes to use, TNS goal, number of runs per rounds, etc.
-B. InTime flow configuration and recipe execution.
-C. Results verification to either stop or execute subsequent recipes.
-D. Export strategies to Tcl scripts.
-E. Summarize and print results.
+- Variable declaration for important information like the recipes to use, TNS goal, number of runs per rounds, etc.
+- InTime flow configuration and recipe execution.
+- Results verification to either stop or execute subsequent recipes.
+- Export strategies to Tcl scripts.
+- Summarize and print results.
+
+
 
 ### A. Variable Declaration
 
@@ -101,10 +103,9 @@ flow set control_stop_when_goal_met true ; # Stop current recipe run when goal i
 flow set control_create_bitstreams false ; # Set to false to save compute time
 ```
 
-```flow reset``` is used to reset the internal flow history. It is a recommended practice to always reset the internal flow history before running any recipe.
-```flow set <property> <value>``` is the command to configure InTime flow settings. For example, ```setting flow set control_stop_when_goal```_met to true enables InTime to stop the current recipe when the goal is met. 
-Otherwise, InTime allows the recipe to continue running even after the goal is met.
-Setting flow set control_create_bitstreams to true enables bitstream files to be created for every revision. Note: This takes up more time to complete each strategy.
+- ```flow reset``` is used to reset the internal flow history. It is a recommended practice to always reset the internal flow history before running any recipe.
+- ```flow set <property> <value>``` is the command to configure InTime flow settings. For example, ```setting flow set control_stop_when_goal```_met to true enables InTime to stop the current recipe when the goal is met. Otherwise, InTime allows the recipe to continue running even after the goal is met.
+- Setting ```flow set control_create_bitstreams``` to true enables bitstream files to be created for every revision. Note: This takes up more time to complete each strategy.
 
 ### Results verification
 
