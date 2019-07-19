@@ -11,9 +11,19 @@ This repository contains scripts to run InTime in the Tcl Console or on the comm
 2. [scripts](scripts/) : Sample scripts to run InTime from each of these clients - command line, InTime GUI or Vivado Tcl console. 
 3. [scripts/intime/configuration](scripts/intime/configuration/) : Ways to set up InTime for your FPGA toolchains.
 
-Currently, both project and non-project modes are supported. 
+## Run InTime in Project versus Non-project Mode
+Using a command line shell, a typical way to start InTime is as such below
+
+```intime.sh -mode batch -project <proj> -s autorun_multi_recipes.tcl```
+
+* For project-mode, use a XPR file for the ```<proj>``` option.
+* For non-project mode-, use the a tcl build script for the ```<proj>``` option.
+
+*Sample XPR project or build script are available under the sample-designs folder.
+
 For InTime version 2.6.10 and older, a post-synthesis **DCP** file is required for non-project mode. 
 
+## GUI
 To learn more of the InTime GUI, refer to this [video](https://www.youtube.com/watch?v=lQvY_XZ3R7w).
 
 ## Requirements
