@@ -8,21 +8,25 @@ To get a sample XPR project, please see [here](../../../examples/project_mode)
 
 ## How to run:
 ### Run autorun_multi_recipes.tcl in InTime Tcl Console:
-1. Launch InTime and open a Vivado XPR project. 
+1. Launch InTime and open a project. 
 2. Run the autorun_multi_recipes.tcl script at the Tcl Console by using following command:
 source autorun_multi_recipes.tcl
 
 ### Run autorun_multi_recipes.tcl in Command Line:
-1. Change current directory to a Vivado XPR project directory.
+1. Change current directory to a Vivado project directory.
 2. Run following example command:
 
-#### For Linux:
+* For Linux:
+```
 <intime_installed_dir>/intime.sh -project <proj> -mode batch -s autorun_multi_recipes.tcl -toolchain vivado 
 -toolchain_version 2018.3.0 -tclargs "-output_dir <output_directory>"
+```
 
-#### For Windows:
+* For Windows:
+```
 <intime_installed_dir>\bin\intime.exe -project <prog> -mode batch -s autorun_multi_recipes.tcl -toolchain vivado 
 -toolchain_version 2018.3.0 -tclargs "-output_dir <output_directory>"
+```
 
 ## Explanation:
 The autorun_multi_recipes.tcl example script is divided into five different parts:
