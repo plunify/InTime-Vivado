@@ -3,8 +3,8 @@
 This custom Tcl script automatically executes multiple InTime recipes in the order below. When each recipe completes, the script sets the revision with the best timing result as the parent revision for the next recipe.
 
 ## Requirement:
-A XPR project is required before running autorun_multi_recipes.tcl.
-To get a sample of XPR project, please see [here](../../../examples/project_mode)
+A project is required before running this script.
+To get a sample XPR project, please see [here](../../../examples/project_mode)
 
 ## How to run:
 ### Run autorun_multi_recipes.tcl in InTime Tcl Console:
