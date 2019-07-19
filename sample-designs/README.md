@@ -6,6 +6,7 @@
 
 This is a sample project to demonstrate how to use InTime in non-project mode. To use this build script, treat it like a project file, e.g. XPR, and open it directly with InTime.
 
+#### Description
 The tcl file is a typical build script. It reads in a list of files. 
 
 ```Tcl
@@ -44,7 +45,7 @@ if {$rc} {
 ```
 ### [Project mode](project_mode/)
 
-This example creates an XPR project.
+Run the Tcl script ```create_project.tcl``` to create an XPR project.
 
 1. The default target device is "xc7k70tfbg484-2". If you wish to target other device, please change following parameter inside the create_project.tcl:
 ```Tcl
@@ -59,5 +60,5 @@ Please take note the project will be created by the same Vivado version of <viva
 3. After the script is completed, a XPR project named "eight_bit_uc" will be created in local directory.
 
 To open the project in GUI mode, run following command:
-<vivado_installation>/bin/vivado -mode gui -project ./eight_bit_uc.xpr
+```<vivado_installation>/bin/vivado -mode gui -project ./eight_bit_uc.xpr```
 
