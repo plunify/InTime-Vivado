@@ -1,4 +1,4 @@
-## Understanding autorun_multi_recipes.tcl
+## Autorun_multi_recipes.tcl
 
 This custom Tcl script automatically executes multiple InTime recipes in the order below. When each recipe completes, the script sets the revision with the best timing result as the parent revision for the next recipe.
 
@@ -28,13 +28,24 @@ source autorun_multi_recipes.tcl
 The autorun_multi_recipes.tcl example script is divided into five different parts:
 
 A. Variable declaration for important information like the recipes to use, TNS goal, number of runs per rounds, etc.
+
 B. InTime flow configuration and recipe execution.
+
 C. Results verification to either stop or execute subsequent recipes.
+
 D. Export strategies to Tcl scripts.
+
 E. Summarize and print results.
 
 ### A. Variable Declaration
-```# Define order of recipes to execute. 
+
+The code below describes what recipes to use and in what order of execution. In this example, for Vivado the order of execution is:
+#### Hot Start -> InTime Default -> extra_opt_exploration
+
+You can modify this sequence to use different recipes or to change the order of execution.
+
+```Tcl
+# Define order of recipes to execute. 
 # -> Type 'flow recipes -supported' in Tcl console to show all available recipe's name
 set current_toolchain [project info toolchain]
 if { [string equal "$current_toolchain" "quartusii"] } {
@@ -49,6 +60,8 @@ if { [string equal "$current_toolchain" "quartusii"] } {
 
 }
 ```
+
+### B. InTime flow configuration and recipe execution.
 
 
 ### Results:
