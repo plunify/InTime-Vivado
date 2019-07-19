@@ -3,8 +3,11 @@ To create a XPR project:
 1. Download all files (.v, .xdc and .tcl) inside this directory to a local directory.
 
 2. By default, the target device is "xc7k70tfbg484-2". If user wish to target other device, please change following parameter inside the create_project.tcl:
+```Tcl
 # define target device
 set part "xc7k70tfbg484-2"
+...
+```
 
 3. Run following command to execute the create_project.tcl in the local directory:
 <vivado_installation>/bin/vivado -mode batch -s create_project.tcl
