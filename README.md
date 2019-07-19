@@ -7,7 +7,7 @@ This repository contains scripts to run InTime in the Tcl Console or on the comm
 3. From the Vivado Tcl Console
 
 ## Main Contents
-1. [examples](examples/) : Sample designs for the various flows described here.
+1. [examples](examples/) : Quickstart designs for the various flows described here.
 2. [scripts](scripts/) : Sample scripts to run InTime from each of these clients - command line, InTime GUI or Vivado Tcl console. 
 3. [scripts/intime/configuration](scripts/intime/configuration/) : Ways to set up InTime for your FPGA toolchains.
 
