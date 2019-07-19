@@ -44,5 +44,5 @@ if {$rc} {
 ...
 ...
 ```
-### 1. [Project mode](project_mode/)
+### 2. [Project mode](project_mode/)
  
