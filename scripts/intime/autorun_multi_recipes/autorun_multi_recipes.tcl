@@ -71,8 +71,8 @@ set end_tns_goal 0
 set end_wns_goal "*" ; #Don't Care
 
 # Define tns goal for each recipe run
-set recipe_target_result_tns(hot_start) "-2500"
-set recipe_target_result_tns(intime_default) "-1000"
+set recipe_target_result_tns(hot_start) "0"
+set recipe_target_result_tns(intime_default) "0"
 set recipe_target_result_tns(deep_dive) "-500"
 set recipe_target_result_tns(auto_placement) "0"
 set recipe_target_result_tns(seeded_effort_level_exploration) "0"
