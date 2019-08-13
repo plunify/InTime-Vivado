@@ -2,12 +2,12 @@
 
 ### [Non-project mode](nonproject_mode/)
 
-**Available in InTime 2.6.11 onwards** - Older versions of InTime only supports Tcl based flow either in project mode or via a dcp.
+**Available in InTime version 2.6.11 onwards** - Older versions of InTime only support the Tcl-based flow either in project mode or via a DCP.
 
-This is a sample project to demonstrate how to use InTime in non-project mode. To use this build script, treat it like a project file, e.g. XPR, and open it directly with InTime.
+This is a sample project to demonstrate how to use InTime in non-project mode. To use this build script, treat it like a project file, e.g. XPR, and open it directly in InTime.
 
 #### Description
-The tcl file is a typical build script. It reads in a list of files. 
+The Tcl file is a typical build script. It reads in a list of files. 
 
 ```Tcl
 # 
@@ -26,7 +26,7 @@ read_verilog {
 }
 read_xdc eight_bit_uc.sdc
 ```
-After that it executes the compilation steps. Note that in this case the "top" and "part" is specified
+After that it executes the specified compilation steps. Note that in this case the "top" and "part" variables are specified
 ```Tcl
 synth_design -top eight_bit_uc -part xc7k70tfbg484-2
 
@@ -47,18 +47,18 @@ if {$rc} {
 
 Run the Tcl script ```create_project.tcl``` to create an XPR project.
 
-1. The default target device is "xc7k70tfbg484-2". If you wish to target other device, please change following parameter inside the create_project.tcl:
+1. The default target device is "xc7k70tfbg484-2". To target another device, please change the following parameter inside the create_project.tcl script:
 ```Tcl
 # define target device
 set part "xc7k70tfbg484-2"
 ...
 ```
-2. Execute the create_project.tcl in the local directory:
+2. Execute create_project.tcl in the local directory:
 <vivado_installation>/bin/vivado -mode batch -s create_project.tcl
-Please take note the project will be created by the same Vivado version of <vivado_installation>/bin/vivado.
+Do note that the project will be created by the same Vivado version in <vivado_installation>/bin/vivado.
 
-3. After the script is completed, a XPR project named "eight_bit_uc" will be created in local directory.
+3. After the script is completed, a XPR project named "eight_bit_uc" will be created in the local directory.
 
-To open the project in GUI mode, run following command:
+To open the project in GUI mode, run the following command:
 ```<vivado_installation>/bin/vivado -mode gui -project ./eight_bit_uc.xpr```
 
