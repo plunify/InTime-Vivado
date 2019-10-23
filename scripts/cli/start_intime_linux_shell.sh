@@ -13,11 +13,11 @@ YOURTOOLVERSION=""
 YOURINTIMESCRIPT=""
 
 # Example Values
-# YOURINTIMEPATH="/home/dev2002/intime_v2.6.11/intime.sh"
+# YOURINTIMEPATH="/home/dev2002/intime_v2.7.0/intime.sh"
 # YOURPROJECT="/home/dev2002/plunify/examples/vivado/eight_bit_uc_xpr/eight_bit_uc.xpr"
 # YOURFPGATOOL="vivado"
-# YOURTOOLVERSION="2018.2.0"
-# YOURINTIMESCRIPT="../intime/intimeflow.tcl"
+# YOURTOOLVERSION="2019.2.0"
+# YOURINTIMESCRIPT="/home/dev2002/intime/intimeflow.tcl"
 
 echo " ----------Plunify Pte Ltd----------------"
 echo " Starting InTime Shell Script..."
