@@ -58,7 +58,6 @@ $ intime.sh -mode batch -platform minimal -project yourproject.xpr -vendor_toolc
 5. `-vendor_toolchain` - Specify your FPGA vendor tools 
 6. `-vendor_toolchain_version` - Use the specified Vivado version.
 7. `-s` - Runs an InTime Tcl script. Change this to point to the InTime Tcl script.
-(Optional)
-8. `>@ stdout` Echo output to the terminal as InTime runs.
+8. (Optional) `>@ stdout` Echo output to the terminal as InTime runs.
 
 
