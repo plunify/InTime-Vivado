@@ -126,7 +126,7 @@ if { [catch { flow run_recipe $current_recipe }] } {
 In this section, the script checks if any revision in this round meets the target goal. If yes, it stops, otherwise it continues to execute the subsequent recipes until all user-defined recipes are executed.
 
 ```tcl
- # Check if the end goal was met. Stop this script run if goal met
+ # Check if the goal was met. Stop this script if the goal is met
 set job_id [flow get local_job_id]
 if { $flow_continue && !$recipe_run_fail } {
     puts "INFO: Checking results in $current_recipe recipe run \(job $job_id \) "
@@ -150,7 +150,7 @@ if { $flow_continue && !$recipe_run_fail } {
 This section shows how to export strategy settings for each strategy into a Tcl script. 
 
 ```tcl
-# Export strategies settings in tcl for success revisions
+# Export strategies to Tcl for successful revisions
 results clear 
 catch { strategy unset_active }
 set count 0
@@ -163,6 +163,7 @@ foreach id $jobs_ran {
         strategy export "$export_settings_tcl_dir/job${id}_${stratname}.tcl" -script_tcl
         catch { strategy unset_active }
     }
+}
 ```
 
 The command ```strategy export <export_tcl_name> -script_tcl``` is used to export settings for the current strategy into a Tcl script file. In this example, the script only exports strategies that compiled successfully. It uses the command ```results summary success -list``` to obtain a list of such strategies. You must always set the “active strategy” using the command ```strategy set_active <strategy_name> <job_id>``` before running the ```strategy export <export_tcl_name> -script_tcl``` command.
