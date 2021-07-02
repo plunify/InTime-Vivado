@@ -28,4 +28,5 @@ flow set post_place_wns_limit -0.6
 flow set post_place_whs_limit -1000
 
 # run recipe
+flow load_recipe "intime_default"
 flow run_recipe "intime_default"
