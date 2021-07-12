@@ -1,6 +1,8 @@
 #----------------------------------------------------------------------
 # Script      : autorun_multi_recipes.tcl
 # Description : auto run multiple InTime Recipes in a user-defined order
+# Author      : Plunify
+# Version     : 1.0
 #               
 # Return : 0 - script ran ok , 1 - script ran with issues, not_ok
 #
