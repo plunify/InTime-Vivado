@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------
 # Script      : intimeflow.tcl
-# Description : Example on how to run the Hot Start recipe via Tcl
+# Description : Example on how to run a recipe via Tcl
 # Author      : Plunify
 # Version     : 1.1
 #               
@@ -17,10 +17,13 @@
 # Sample script for InTime Optimization
 # Adjust the run_target, runs_per_round and round variables according to your recipe
 flow reset
+# Build machine(s). local or private_cloud or plunify_cloud
 flow set run_target local
-flow set runs_per_round 2
+# Number of strategies to generate
+flow set runs_per_round 40
 flow set rounds 1
-flow set concurrent_runs 1
+# Number of builds in parallel
+flow set concurrent_runs 8
 flow set control_create_bitstreams false
 flow load_recipe "hot_start"
 flow run_recipe "hot_start"
